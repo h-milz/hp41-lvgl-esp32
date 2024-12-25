@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/hm/local/hp41-lvgl-esp32/build/CMakeFiles/bootloader
+/home/hm/local/hp41-lvgl-esp32/build/CMakeFiles/bootloader.rule
+/home/hm/local/hp41-lvgl-esp32/build/CMakeFiles/bootloader-complete.rule
+/home/hm/local/hp41-lvgl-esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/hm/local/hp41-lvgl-esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/hm/local/hp41-lvgl-esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/hm/local/hp41-lvgl-esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/hm/local/hp41-lvgl-esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/hm/local/hp41-lvgl-esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/hm/local/hp41-lvgl-esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
