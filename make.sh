@@ -3,6 +3,8 @@
 # Linux only. 
 CPUS=$(grep ^processor /proc/cpuinfo |wc -l) 
 
+# get the required components
+
 COMPONENTS="components/bt/host/nimble/nimble               \
             components/esp_wifi                            \
             components/esptool_py/esptool                  \
@@ -10,9 +12,6 @@ COMPONENTS="components/bt/host/nimble/nimble               \
             components/mbedtls/mbedtls                     \
             components/bt/controller/lib_esp32             \
             components/bt/controller/lib_esp32c3_family    "
-
-
-# when building: 
 
 (
 cd lib/esp-idf
@@ -25,9 +24,11 @@ done
 
 exit
 
+# build 
+
 idf.py set-target esp32s3
 idf.py -p /dev/ttyUSB0 erase-flash flash
-esptool.py --chip esp32s3 write_flash 0x1E0000 image.bin
+esptool.py --chip esp32s3 write_flash 0x200000 image.bin   # SPIFFS image
 idf.py -p /dev/ttyUSB0 monitor
 
 
