@@ -1,0 +1,9 @@
+[submodule "lib/esp-idf"]
+	path = lib/esp-idf
+	url = git@github.com:espressif/esp-idf.git
+[submodule "lib/lvgl"]
+	path = lib/lvgl
+	url = git@github.com:lvgl/lvgl.git
+[submodule "lib/nonpareil"]
+	path = lib/nonpareil
+	url = git@github.com:brouhaha/nonpareil.git
