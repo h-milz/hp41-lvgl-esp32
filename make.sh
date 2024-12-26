@@ -26,7 +26,7 @@ exit
 
 # build 
 
-idf.py set-target esp32s3
+# idf.py set-target esp32s3
 idf.py -p /dev/ttyUSB0 erase-flash flash
 esptool.py --chip esp32s3 write_flash 0x200000 image.bin   # SPIFFS image
 idf.py -p /dev/ttyUSB0 monitor
