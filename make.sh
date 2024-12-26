@@ -1,35 +1,18 @@
 #!/bin/bash
 
-pushd $HOME/local
+COMPONENTS=""
 
-if [ -d esp-idf ] ; then
-    cd esp-idf
-    git checkout v5.2.2  
-    cd ..
-else
-    git clone -b v5.2.2 --recursive https://github.com/espressif/esp-idf.git
-fi
-    
+# when building: 
+
 cd esp-idf
-git submodule update --init --recursive
+for COMPONENT in COMPONENTS ; do
+    git submodule update --init ${COMPONENT} 
+done    
 ./install.sh 
 cd ..
 
-if [ -d lvgl ] ; then
-    cd lvgl 
-    git checkout v9.2.2
-    cd ..
-else
-    git clone -b v9.2.2 --recursive git@github.com:lvgl/lvgl.git
-fi
+exit
 
-if [ -d nonpareil ] ; then
-    cd nonpareil
-    git pull
-    cd ..
-else
-    git clone git@github.com:brouhaha/nonpareil.git
-fi
 
 popd # we're back 
 . ../esp-idf/export.sh 
