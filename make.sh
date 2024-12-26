@@ -14,13 +14,16 @@ COMPONENTS="components/bt/host/nimble/nimble               \
 
 # when building: 
 
-cd esp-idf
-for COMPONENT in COMPONENTS ; do
+(
+cd lib/esp-idf
+for COMPONENT in ${COMPONENTS} ; do
     git submodule update --init --depth=1 --jobs ${CPUS} -- ${COMPONENT} 
 done    
 ./install.sh 
-cd ..
+)
 . ../esp-idf/export.sh 
+
+exit
 
 idf.py set-target esp32s3
 idf.py -p /dev/ttyUSB0 erase-flash flash

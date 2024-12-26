@@ -13,15 +13,14 @@ NONPAREIL="git@github.com:brouhaha/nonpareil.git"
 # only master seems to be usable, no versioned branches (yet)
 
 mkdir -p lib
+(
 cd lib
-
 # clone the submodules
 git clone -b ${IDF_VER} ${ESP_IDF} esp-idf
 # we will add required components later to keep things tidy
 git clone -b ${LVGL_VER} ${LVGL} lvgl
 git clone ${NONPAREIL} nonpareil
-
-cd .. 
+)
 
 # add submodules
 git submodule add ${ESP_IDF} lib/esp-idf/
