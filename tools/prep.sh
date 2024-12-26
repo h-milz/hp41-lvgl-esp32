@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # prepare the repo and its submodules
+# no user servicable parts inside. This is for the maintainer only. 
 
 ESP_IDF="git@github.com:espressif/esp-idf.git"
 IDF_VER="v5.3.2"
@@ -28,8 +29,8 @@ git submodule add ${LVGL} lib/lvgl/
 git submodule add ${NONPAREIL} lib/nonpareil/
 
 # make permanent
-#git add lib/esp-idf/ lib/lvgl/ lib/nonpareil/ 
-#git commit -m "Added submodules"
-#git push origin main
+git add lib/esp-idf/ lib/lvgl/ lib/nonpareil/ 
+git commit -m "Added submodules"
+git push origin main
 
 

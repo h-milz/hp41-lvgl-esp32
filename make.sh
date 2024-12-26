@@ -1,21 +1,27 @@
 #!/bin/bash
 
-COMPONENTS=""
+# Linux only. 
+CPUS=$(grep ^processor /proc/cpuinfo |wc -l) 
+
+COMPONENTS="components/bt/host/nimble/nimble               \
+            components/esp_wifi                            \
+            components/esptool_py/esptool                  \
+            components/lwip/lwip                           \
+            components/mbedtls/mbedtls                     \
+            components/bt/controller/lib_esp32             \
+            components/bt/controller/lib_esp32c3_family    "
+
 
 # when building: 
 
 cd esp-idf
 for COMPONENT in COMPONENTS ; do
-    git submodule update --init ${COMPONENT} 
+    git submodule update --init --depth=1 --jobs ${CPUS} -- ${COMPONENT} 
 done    
 ./install.sh 
 cd ..
-
-exit
-
-
-popd # we're back 
 . ../esp-idf/export.sh 
+
 idf.py set-target esp32s3
 idf.py -p /dev/ttyUSB0 erase-flash flash
 esptool.py --chip esp32s3 write_flash 0x1E0000 image.bin
